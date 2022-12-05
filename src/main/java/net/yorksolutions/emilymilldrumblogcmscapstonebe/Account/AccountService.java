@@ -26,7 +26,12 @@ public class AccountService {
     }
 
     public Optional<Account> getAccountById(Long id) {
-        return this.repository.findById(id);
+        Optional<Account> accountOpt = this.repository.findById(id);
+        if(accountOpt.isEmpty())
+        {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return accountOpt;
     }
 
     public Account login(String email, String password) {
@@ -37,6 +42,13 @@ public class AccountService {
         return accountOpt.get();
     }
 
-//    public Account update(AccountUpdateDTO requestDTO) {
-//    }
+    public Account updatePost(AccountUpdateDTO requestDTO) {
+        Optional<Account> accountOpt = this.getAccountById(requestDTO.id);
+        Account account = accountOpt.get();
+        account.getPostList().clear();
+        account.getPostList().addAll(requestDTO.postList);
+
+        return this.repository.save(account);
+    }
+
 }

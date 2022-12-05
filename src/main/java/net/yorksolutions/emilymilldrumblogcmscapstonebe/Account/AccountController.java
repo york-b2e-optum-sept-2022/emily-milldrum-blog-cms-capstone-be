@@ -32,9 +32,9 @@ public class AccountController {
     public Account login(@RequestParam String email, @RequestParam String password) {
         return this.service.login(email, password);
     }
-//    @PutMapping
-//    public Account update(@RequestBody AccountUpdateDTO requestDTO){
-//        return this.service.update(requestDTO);
-//    }
+    @PutMapping("/post")
+    public Account updatePost(@RequestBody AccountUpdateDTO requestDTO){
+        return this.service.updatePost(requestDTO);
+    }
 
 }

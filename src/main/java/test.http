@@ -7,6 +7,44 @@ Content-Type: application/json
   "lName": "milldrum",
   "email": "emily@test.com",
   "password": "test",
-  "posts": [],
+  "posts": [{
+
+  }],
+  "comments": []
+}
+
+###
+PUT http://localhost:8080/api/account/post
+Content-Type: application/json
+
+{
+  "id": 1,
+  "fName": "emily",
+  "lName": "milldrum",
+  "email": "emily@test.com",
+  "password": "test",
+  "posts": [
+    {
+      "title": "my title",
+      "createDate": "2012-04-23T18:25:43.511Z",
+      "updateDate": "",
+      "body": "this is the body",
+      "comments": []
+    }
+  ],
+  "comments": []
+}
+
+
+###
+POST http://localhost:8080/api/post/
+Content-Type: application/json
+
+{
+  "authorId": 1,
+  "title": "my title 2",
+  "createDate": "2022-04-23T18:25:43.511Z",
+  "updateDate": "",
+  "body": "this is the body again",
   "comments": []
 }

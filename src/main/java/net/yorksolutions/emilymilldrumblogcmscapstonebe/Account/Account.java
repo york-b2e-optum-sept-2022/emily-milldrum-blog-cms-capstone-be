@@ -1,5 +1,7 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Account;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Post.Post;
 
@@ -15,6 +17,8 @@ public class Account {
     private String fName;
     private String lName;
     private String email;
+
+    @JsonIgnore
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
