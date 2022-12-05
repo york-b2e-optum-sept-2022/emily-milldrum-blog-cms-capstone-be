@@ -1,6 +1,10 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Account;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -19,6 +23,18 @@ public class AccountService {
 
     public Iterable<Account> getAccounts() {
         return repository.findAll();
+    }
+
+    public Optional<Account> getAccountById(Long id) {
+        return this.repository.findById(id);
+    }
+
+    public Account login(String email, String password) {
+        Optional<Account> accountOpt = this.repository.findByEmailAndPassword(email, password);
+        if (accountOpt.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return accountOpt.get();
     }
 
 //    public Account update(AccountUpdateDTO requestDTO) {
