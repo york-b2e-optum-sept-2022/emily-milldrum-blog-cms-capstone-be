@@ -1,0 +1,12 @@
+###
+POST http://localhost:8080/api/account/
+Content-Type: application/json
+
+{
+  "fName": "emily",
+  "lName": "milldrum",
+  "email": "emily@test.com",
+  "password": "test",
+  "posts": [],
+  "comments": []
+}
