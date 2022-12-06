@@ -1,6 +1,7 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Post;
 
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.Account;
+import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.AccountUpdateDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,5 +24,11 @@ public class PostController {
     Iterable<Post> get() {
         return this.service.getAllPosts();
     }
+
+    @PutMapping("")
+    public Post updatePost(@RequestBody PostUpdateDTO requestDTO){
+        return this.service.updatePost(requestDTO);
+    }
+
 
 }

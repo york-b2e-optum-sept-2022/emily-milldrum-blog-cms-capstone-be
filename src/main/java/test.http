@@ -7,6 +7,7 @@ Content-Type: application/json
   "lName": "milldrum",
   "email": "emily@test.com",
   "password": "test",
+  "profilePic": "https://64.media.tumblr.com/4d1d96b07b7ffb8a974a52c31d84f337/9acaddb9bce6f4fd-7f/s540x810/7bfacef189d33bc2a7f1529b3fb5e664f30706f5.jpg",
   "posts": [{
 
   }],
@@ -23,6 +24,7 @@ Content-Type: application/json
   "lName": "milldrum",
   "email": "emily@test.com",
   "password": "test",
+  "profilePic": "https://64.media.tumblr.com/4d1d96b07b7ffb8a974a52c31d84f337/9acaddb9bce6f4fd-7f/s540x810/7bfacef189d33bc2a7f1529b3fb5e664f30706f5.jpg",
   "posts": [
     {
       "title": "my title",

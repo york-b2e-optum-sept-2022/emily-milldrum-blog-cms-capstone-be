@@ -16,11 +16,14 @@ public class PostService {
     }
     public Post create(PostDTO requestDTO) {
 
-        Account author = this.accountService.getAccountById(requestDTO.authorId).get();
+        Account author = this.accountService.getAccountById(requestDTO.author.getId()).get();
         return this.repository.save(new Post(requestDTO, author));
     }
 
     public Iterable<Post> getAllPosts() {
         return this.repository.findAll();
+    }
+
+    public Post updatePost(PostUpdateDTO requestDTO) {
     }
 }

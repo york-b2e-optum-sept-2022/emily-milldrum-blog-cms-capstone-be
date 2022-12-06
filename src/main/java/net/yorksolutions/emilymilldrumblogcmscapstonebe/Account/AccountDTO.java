@@ -5,4 +5,5 @@ public class AccountDTO {
     public String lName;
     public String email;
     public String password;
+    public String profilePic;
 }

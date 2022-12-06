@@ -21,6 +21,8 @@ public class Account {
     @JsonIgnore
     private String password;
 
+    private String profilePic;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="accountId")
     private List<Post> postList;
@@ -49,6 +51,7 @@ public class Account {
         setlName(requestDTO.lName);
         setEmail(requestDTO.email);
         setPassword(requestDTO.password);
+        setProfilePic(requestDTO.profilePic);
     }
 
     public Long getId() {
@@ -89,6 +92,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public List<Post> getPostList() {
