@@ -1,5 +1,4 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Post;
-
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.Account;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
 
@@ -17,10 +16,12 @@ public class Post {
 
     @ManyToOne
     private Account author;
-
     private Date createDate;
     private Date updateDate;
     private String title;
+
+    //@lob
+    @Column(columnDefinition = "TEXT")
     private String body;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
