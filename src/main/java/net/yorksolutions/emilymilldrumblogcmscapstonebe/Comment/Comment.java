@@ -16,6 +16,8 @@ public class Comment {
     @ManyToOne
     private Account author;
 
+    private Long postId;
+
     private Date createDate;
 
     private Date updateDate;
@@ -26,11 +28,30 @@ public class Comment {
     {
 
     }
-    public Comment(Account author, Date createDate, Date updateDate, String comment) {
+    public Comment(CommentDTO requestDTO){
+        setAuthor(requestDTO.author);
+        setPostId(requestDTO.postId);
+        setCreateDate(requestDTO.createDate);
+        setUpdateDate(requestDTO.updateDate);
+        setComment(requestDTO.comment);
+    }
+    public Comment(Account author, Long postId, Date createDate, Date updateDate, String comment) {
         setAuthor(author);
+        setPostId(postId);
         setCreateDate(createDate);
         setUpdateDate(updateDate);
         setComment(comment);
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", author=" + author +
+                ", createDate=" + createDate +
+                ", updateDate=" + updateDate +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 
     public void setId(Long id) {
@@ -48,6 +69,14 @@ public class Comment {
 
     public void setAuthor(Account author) {
         this.author = author;
+    }
+
+    public Long getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
     public Date getCreateDate() {

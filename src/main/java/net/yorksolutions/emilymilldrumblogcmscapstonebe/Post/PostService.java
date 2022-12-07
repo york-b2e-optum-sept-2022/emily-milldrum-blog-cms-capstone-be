@@ -2,10 +2,12 @@ package net.yorksolutions.emilymilldrumblogcmscapstonebe.Post;
 
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.Account;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.AccountService;
+import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,6 +47,12 @@ public class PostService {
 
         //TODO null issue here
         //testing add comment
+        List<Comment> comments = post.getComment();
+        for (Comment comment: comments)
+        {
+            System.out.println(comment.getComment());
+        }
+
         System.out.println(post.getComment());
         post.getComment().clear();
         System.out.println(post.getComment());
@@ -71,5 +79,10 @@ public class PostService {
 //                return stage;
 //            }
 //        }
+    }
+
+    public Iterable<Post> findPostsByAuthor(Long id) {
+        Optional<Account> author = this.accountService.getAccountById(id);
+        return this.repository.findPostsByAuthor(author.get());
     }
 }

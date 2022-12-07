@@ -2,6 +2,7 @@ package net.yorksolutions.emilymilldrumblogcmscapstonebe.Account;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import net.yorksolutions.emilymilldrumblogcmscapstonebe.Chat.Chat;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Post.Post;
 
@@ -27,12 +28,15 @@ public class Account {
     @JoinColumn(name="accountId")
     private List<Post> postList;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="accountId")
-    private List<Comment> commentList;
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name="accountId")
+//    private List<Comment> commentList;
 
 
     //todo PM system
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="accountId")
+    private List<Chat> chatList;
 
     public Account(){
 
@@ -110,11 +114,11 @@ public class Account {
         this.postList = postList;
     }
 
-    public List<Comment> getCommentList() {
-        return commentList;
-    }
-
-    public void setCommentList(List<Comment> commentList) {
-        this.commentList = commentList;
-    }
+//    public List<Comment> getCommentList() {
+//        return commentList;
+//    }
+//
+//    public void setCommentList(List<Comment> commentList) {
+//        this.commentList = commentList;
+//    }
 }

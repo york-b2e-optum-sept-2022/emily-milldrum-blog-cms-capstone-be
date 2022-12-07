@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 public class Post {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -30,6 +29,15 @@ public class Post {
 
     public Post() {
 
+    }
+
+    public void removeComment(Comment incComment){
+        commentList.remove(incComment);
+    }
+    public void addComment(Comment incComment){
+        List<Comment> list = getComment();
+        list.add(incComment);
+        setComment(list);
     }
 
     public Post(PostDTO post, Account author){
