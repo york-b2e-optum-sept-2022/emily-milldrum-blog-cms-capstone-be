@@ -44,4 +44,16 @@ public class CommentService {
         this.repo.deleteById(id);
         return post;
     }
+
+    public Comment update(CommentUpdateDTO requestDTO) {
+
+        Optional<Comment> comOpt = this.repo.findById(requestDTO.id);
+        if (comOpt.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        Comment comment = comOpt.get();
+        comment.setComment(requestDTO.comment);
+        comment.setUpdateDate();
+        return this.repo.save(comment);
+    }
 }

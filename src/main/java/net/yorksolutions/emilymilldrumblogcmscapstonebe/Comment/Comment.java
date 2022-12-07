@@ -32,14 +32,14 @@ public class Comment {
         setAuthor(requestDTO.author);
         setPostId(requestDTO.postId);
         setCreateDate(requestDTO.createDate);
-        setUpdateDate(requestDTO.updateDate);
+        setUpdateDate();
         setComment(requestDTO.comment);
     }
-    public Comment(Account author, Long postId, Date createDate, Date updateDate, String comment) {
+    public Comment(Account author, Long postId, Date createDate, String comment) {
         setAuthor(author);
         setPostId(postId);
         setCreateDate(createDate);
-        setUpdateDate(updateDate);
+        setUpdateDate();
         setComment(comment);
     }
 
@@ -91,8 +91,8 @@ public class Comment {
         return updateDate;
     }
 
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
+    public void setUpdateDate() {
+        this.updateDate = new Date();
     }
 
     public String getComment() {

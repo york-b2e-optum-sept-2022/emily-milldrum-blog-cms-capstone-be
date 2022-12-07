@@ -28,9 +28,8 @@ public class CommentController {
         return this.service.delete(id);
     }
 
-//
-//    ]CommentUpdateDTO requestDTO){
-//        return this.service.delete(requestDTO);
-//    }
-
+    @PutMapping
+    public Comment update(@RequestBody CommentUpdateDTO requestDTO){
+        return this.service.update(requestDTO);
+    }
 }
