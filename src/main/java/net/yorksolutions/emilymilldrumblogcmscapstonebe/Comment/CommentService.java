@@ -29,4 +29,19 @@ public class CommentService {
         post.addComment(comment);
         return this.postRepo.save(post);
     }
+
+    public Post delete(Long id) {
+        Optional<Comment> comOpt = repo.findById(id);
+        if (comOpt.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Comment comment = comOpt.get();
+        Optional<Post> found = postRepo.findById(comment.getPostId());
+        if (found.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Post post = found.get();
+        this.repo.deleteById(id);
+        return post;
+    }
 }

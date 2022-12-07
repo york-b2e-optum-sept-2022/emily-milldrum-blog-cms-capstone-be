@@ -50,3 +50,6 @@ Content-Type: application/json
   "body": "this is the body again",
   "comments": []
 }
+
+###
+DELETE http://localhost:8080/api/comment/26
