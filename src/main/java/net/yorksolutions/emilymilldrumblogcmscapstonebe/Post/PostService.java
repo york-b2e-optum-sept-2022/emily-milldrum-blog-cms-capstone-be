@@ -43,21 +43,21 @@ public class PostService {
         post.setTitle(requestDTO.title);
         post.setBody(requestDTO.body);
         post.setUpdateDate(requestDTO.updateDate);
-        post.setAuthor(requestDTO.author);
+//        post.setAuthor(requestDTO.author);
 
         //TODO null issue here
         //testing add comment
-        List<Comment> comments = post.getComment();
-        for (Comment comment: comments)
-        {
-            System.out.println(comment.getComment());
-        }
-
-        System.out.println(post.getComment());
-        post.getComment().clear();
-        System.out.println(post.getComment());
-        post.getComment().addAll(requestDTO.commentList);
-        System.out.println(post.getComment());
+//        List<Comment> comments = post.getComment();
+//        for (Comment comment: comments)
+//        {
+//            System.out.println(comment.getComment());
+//        }
+//
+//        System.out.println(post.getComment());
+//        post.getComment().clear();
+//        System.out.println(post.getComment());
+//        post.getComment().addAll(requestDTO.commentList);
+//        System.out.println(post.getComment());
 
         return this.repository.save(post);
     }

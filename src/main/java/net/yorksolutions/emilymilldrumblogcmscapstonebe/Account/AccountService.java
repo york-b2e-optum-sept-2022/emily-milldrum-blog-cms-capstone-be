@@ -45,8 +45,9 @@ public class AccountService {
     public Account updatePost(AccountUpdateDTO requestDTO) {
         Optional<Account> accountOpt = this.getAccountById(requestDTO.id);
         Account account = accountOpt.get();
-        account.getPostList().clear();
-        account.getPostList().addAll(requestDTO.postList);
+        //account.getPostList()
+        //account.getPostList().clear();
+        //account.getPostList().addAll(requestDTO.postList);
 
         return this.repository.save(account);
     }
