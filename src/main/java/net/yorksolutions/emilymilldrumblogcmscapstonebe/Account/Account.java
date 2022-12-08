@@ -33,7 +33,7 @@ public class Account {
 //    private List<Comment> commentList;
 
 
-    //todo PM system
+//    //todo PM system
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="accountId")
     private List<Chat> chatList;
@@ -121,4 +121,19 @@ public class Account {
 //    public void setCommentList(List<Comment> commentList) {
 //        this.commentList = commentList;
 //    }
+
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", profilePic='" + profilePic + '\'' +
+                ", postList=" + postList +
+                ", chatList=" + chatList +
+                '}';
+    }
 }

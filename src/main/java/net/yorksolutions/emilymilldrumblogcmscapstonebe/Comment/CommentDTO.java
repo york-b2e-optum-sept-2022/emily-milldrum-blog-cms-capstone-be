@@ -14,4 +14,5 @@ public class CommentDTO {
     public Date updateDate;
 
     public String comment;
+
 }
