@@ -21,6 +21,17 @@ public class Message {
     private Account receiver;
     private String message;
 
+    public Message(NewMessageDTO messageDTO) {
+        setCreateDate(new Date());
+        setReceiver(messageDTO.receiver);
+        setSender(messageDTO.sender);
+        setMessage(messageDTO.message);
+    }
+
+    public Message() {
+
+    }
+
     public Long getId() {
         return id;
     }

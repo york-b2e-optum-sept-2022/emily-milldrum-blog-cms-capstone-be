@@ -22,7 +22,7 @@ public class PostService {
     }
     public Post create(PostDTO requestDTO) {
 
-        Account author = this.accountService.getAccountById(requestDTO.author.getId()).get();
+        Account author = this.accountService.getAccountById(requestDTO.author.getId());
         return this.repository.save(new Post(requestDTO, author));
     }
 
@@ -82,7 +82,7 @@ public class PostService {
     }
 
     public Iterable<Post> findPostsByAuthor(Long id) {
-        Optional<Account> author = this.accountService.getAccountById(id);
-        return this.repository.findPostsByAuthor(author.get());
+        Account author = this.accountService.getAccountById(id);
+        return this.repository.findPostsByAuthor(author);
     }
 }
