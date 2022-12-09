@@ -5,6 +5,7 @@ import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Post {
@@ -26,6 +27,9 @@ public class Post {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="postId")
     private List<Comment> commentList;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<Long> views;
 
     public Post() {
 
@@ -103,5 +107,27 @@ public class Post {
 
     public void setComment(List<Comment> commentList) {
         this.commentList = commentList;
+    }
+
+    public Set<Long> getViews() {
+        return views;
+    }
+
+    public void setViews(Set<Long> views) {
+        this.views = views;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", author=" + author +
+                ", createDate=" + createDate +
+                ", updateDate=" + updateDate +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", commentList=" + commentList +
+                ", views=" + views +
+                '}';
     }
 }

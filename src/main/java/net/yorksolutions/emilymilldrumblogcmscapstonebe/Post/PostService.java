@@ -43,6 +43,7 @@ public class PostService {
         post.setTitle(requestDTO.title);
         post.setBody(requestDTO.body);
         post.setUpdateDate(requestDTO.updateDate);
+        post.setViews(requestDTO.views);
 //        post.setAuthor(requestDTO.author);
 
         //TODO null issue here
@@ -65,6 +66,7 @@ public class PostService {
     public Post delete(Long id) {
         Post post=this.postOpt(id).get();
         this.repository.deleteById(id);
+        System.out.println(post);
         return post;
 //
 //        Optional<Post> postOpt=this.postOpt(id);
