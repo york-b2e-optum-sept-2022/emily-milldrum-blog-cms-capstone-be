@@ -33,7 +33,7 @@ public class Account {
 //    private List<Comment> commentList;
 
 
-//    //todo PM system
+//    //todo PM system is this needed, some issues here
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="accountId")
     private List<Chat> chatList;
@@ -41,14 +41,6 @@ public class Account {
     public Account(){
 
     }
-
-//    public Account(Long id, String fName, String lName, String email, String password) {
-//        this.id = id;
-//        this.fName = fName;
-//        this.lName = lName;
-//        this.email = email;
-//        this.password = password;
-//    }
 
     public Account(AccountDTO requestDTO) {
         setfName(requestDTO.fName);

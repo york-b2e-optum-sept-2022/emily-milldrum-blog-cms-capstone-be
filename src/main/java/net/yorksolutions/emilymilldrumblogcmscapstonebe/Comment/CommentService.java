@@ -17,7 +17,7 @@ public class CommentService {
         this.repo = repo;
         this.postRepo = postRepo;
     }
-    public Post addToPost(CommentDTO requestDTO) {
+    public Comment addToPost(CommentDTO requestDTO) {
         Comment comment = new Comment(requestDTO);
         this.repo.save(comment);
         Optional<Post> postOpt = this.postRepo.findById(requestDTO.postId);
@@ -27,7 +27,8 @@ public class CommentService {
         Post post = postOpt.get();
 
         post.addComment(comment);
-        return this.postRepo.save(post);
+        this.postRepo.save(post);
+        return comment;
     }
 
     public Post delete(Long id) {

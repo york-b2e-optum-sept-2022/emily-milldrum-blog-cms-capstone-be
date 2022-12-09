@@ -19,7 +19,7 @@ public class CommentController {
     }
 
     @PostMapping
-    public Post addToStage(@RequestBody CommentDTO requestDTO){
+    public Comment addToPost(@RequestBody CommentDTO requestDTO){
         return this.service.addToPost(requestDTO);
     }
 

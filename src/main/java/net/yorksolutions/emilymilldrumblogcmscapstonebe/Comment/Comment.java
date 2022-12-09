@@ -32,7 +32,6 @@ public class Comment {
         setAuthor(requestDTO.author);
         setPostId(requestDTO.postId);
         setCreateDate(requestDTO.createDate);
-        setUpdateDate();
         setComment(requestDTO.comment);
     }
     public Comment(Account author, Long postId, Date createDate, String comment) {
@@ -84,7 +83,8 @@ public class Comment {
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+
+        this.createDate = new Date();
     }
 
     public Date getUpdateDate() {
