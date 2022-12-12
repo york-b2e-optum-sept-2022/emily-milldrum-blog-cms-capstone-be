@@ -8,7 +8,7 @@ import net.yorksolutions.emilymilldrumblogcmscapstonebe.Post.Post;
 
 import javax.persistence.*;
 import java.util.List;
-
+//em
 @Entity
 public class Account {
 
