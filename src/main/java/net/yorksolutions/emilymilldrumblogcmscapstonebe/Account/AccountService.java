@@ -51,4 +51,11 @@ public class AccountService {
         return this.repository.save(account);
     }
 
+    public Account updateAccount(AccountProfileDTO requestDTO) {
+        Account account = this.getAccountById(requestDTO.id);
+        account.setfName(requestDTO.fName);
+        account.setlName(requestDTO.lName);
+        account.setProfilePic(requestDTO.profilePic);
+        return this.repository.save(account);
+    }
 }

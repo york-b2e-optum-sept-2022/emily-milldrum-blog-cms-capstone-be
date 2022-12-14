@@ -31,6 +31,12 @@ public class AccountController {
         return this.service.getAccountById(id);
     }
 
+    @PutMapping()
+    public Account updateAccount(@RequestBody AccountProfileDTO requestDTO){
+        return this.service.updateAccount(requestDTO);
+    }
+
+
     @GetMapping("/login")
     public Account login(@RequestParam String email, @RequestParam String password) {
         return this.service.login(email, password);
