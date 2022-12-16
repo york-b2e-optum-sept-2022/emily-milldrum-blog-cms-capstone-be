@@ -1,10 +1,5 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Account;
-
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.CommentService;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Post.Post;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/account")
@@ -18,7 +13,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public Account create(@RequestBody AccountDTO requestDTO){
+    public Account create(@RequestBody AccountDTO requestDTO) {
         return this.service.create(requestDTO);
     }
 
@@ -32,10 +27,9 @@ public class AccountController {
     }
 
     @PutMapping()
-    public Account updateAccount(@RequestBody AccountProfileDTO requestDTO){
+    public Account updateAccount(@RequestBody AccountUpdateDTO requestDTO) {
         return this.service.updateAccount(requestDTO);
     }
-
 
     @GetMapping("/login")
     public Account login(@RequestParam String email, @RequestParam String password) {

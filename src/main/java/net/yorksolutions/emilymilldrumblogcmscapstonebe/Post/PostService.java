@@ -42,43 +42,13 @@ public class PostService {
         post.setBody(requestDTO.body);
         post.setUpdateDate(requestDTO.updateDate);
         post.setViews(requestDTO.views);
-//        post.setAuthor(requestDTO.author);
-
-        //TODO null issue here
-        //testing add comment
-//        List<Comment> comments = post.getComment();
-//        for (Comment comment: comments)
-//        {
-//            System.out.println(comment.getComment());
-//        }
-//
-//        System.out.println(post.getComment());
-//        post.getComment().clear();
-//        System.out.println(post.getComment());
-//        post.getComment().addAll(requestDTO.commentList);
-//        System.out.println(post.getComment());
-
         return this.repository.save(post);
     }
 
     public Post delete(Long id) {
         Post post=this.postOpt(id).get();
         this.repository.deleteById(id);
-        System.out.println(post);
         return post;
-//
-//        Optional<Post> postOpt=this.postOpt(id);
-//        } else {
-//            StageOptions options = stageOpt.get();
-//            Optional<Stage> found = stageRepository.findStageByStageOptions(options);
-//            if (found.isEmpty()) {
-//                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//            } else {
-//                Stage stage = found.get();
-//                this.stageOptionsRepository.deleteById(optId);
-//                return stage;
-//            }
-//        }
     }
 
     public Iterable<Post> findPostsByAuthor(Long id) {

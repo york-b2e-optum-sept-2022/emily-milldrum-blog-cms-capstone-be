@@ -1,6 +1,8 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Message;
 
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.Account;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -40,35 +42,23 @@ public class Message {
         this.id = id;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    public Account getSender() {
-        return sender;
     }
 
     public void setSender(Account sender) {
         this.sender = sender;
     }
 
-    public Account getReceiver() {
-        return receiver;
-    }
 
     public void setReceiver(Account receiver) {
         this.receiver = receiver;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
     public void setMessage(String message) {
+        if(message.equals("")){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
         this.message = message;
     }
 }

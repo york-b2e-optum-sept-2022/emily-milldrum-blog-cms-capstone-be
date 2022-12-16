@@ -1,13 +1,12 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Account;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Chat.Chat;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Post.Post;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Objects;
+
 //em
 @Entity
 public class Account {
@@ -23,20 +22,6 @@ public class Account {
     private String password;
 
     private String profilePic;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="accountId")
-    private List<Post> postList;
-
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name="accountId")
-//    private List<Comment> commentList;
-
-
-//    //todo PM system is this needed, some issues here
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="accountId")
-    private List<Chat> chatList;
 
     public Account(){
 
@@ -63,6 +48,10 @@ public class Account {
     }
 
     public void setfName(String fName) {
+        if (Objects.equals(fName, ""))
+        {
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
         this.fName = fName;
     }
 
@@ -71,6 +60,10 @@ public class Account {
     }
 
     public void setlName(String lName) {
+        if (Objects.equals(lName, ""))
+        {
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
         this.lName = lName;
     }
 
@@ -79,6 +72,10 @@ public class Account {
     }
 
     public void setEmail(String email) {
+        if (Objects.equals(email, ""))
+        {
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
         this.email = email;
     }
 
@@ -87,6 +84,13 @@ public class Account {
     }
 
     public void setPassword(String password) {
+        if (Objects.equals(password, ""))
+        {
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
+        if (password.length() < 4){
+            throw new ResponseStatusException(HttpStatus.LENGTH_REQUIRED);
+        }
         this.password = password;
     }
 
@@ -96,36 +100,5 @@ public class Account {
 
     public void setProfilePic(String profilePic) {
         this.profilePic = profilePic;
-    }
-
-    public List<Post> getPostList() {
-        return postList;
-    }
-
-    public void setPostList(List<Post> postList) {
-        this.postList = postList;
-    }
-
-//    public List<Comment> getCommentList() {
-//        return commentList;
-//    }
-//
-//    public void setCommentList(List<Comment> commentList) {
-//        this.commentList = commentList;
-//    }
-
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", profilePic='" + profilePic + '\'' +
-                ", postList=" + postList +
-                ", chatList=" + chatList +
-                '}';
     }
 }

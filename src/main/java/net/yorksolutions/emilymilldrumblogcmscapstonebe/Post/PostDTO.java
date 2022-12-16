@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 public class PostDTO {
-   // public Long authorId;
     public Account author;
     public Date createDate;
     public Date updateDate;

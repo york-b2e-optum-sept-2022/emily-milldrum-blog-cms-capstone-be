@@ -1,6 +1,8 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Post;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.Account;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,7 +22,6 @@ public class Post {
     private Date updateDate;
     private String title;
 
-    //@lob
     @Column(columnDefinition = "TEXT")
     private String body;
 
@@ -90,6 +91,9 @@ public class Post {
     }
 
     public void setTitle(String title) {
+        if(title.equals("")){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
         this.title = title;
     }
 
@@ -98,6 +102,9 @@ public class Post {
     }
 
     public void setBody(String body) {
+        if(body.equals("")){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
         this.body = body;
     }
 

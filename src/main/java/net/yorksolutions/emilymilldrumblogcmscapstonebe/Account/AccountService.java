@@ -3,7 +3,6 @@ package net.yorksolutions.emilymilldrumblogcmscapstonebe.Account;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.Optional;
 
 @Service
@@ -44,14 +43,10 @@ public class AccountService {
 
     public Account updatePost(AccountUpdateDTO requestDTO) {
         Account account = this.getAccountById(requestDTO.id);
-        //account.getPostList()
-        //account.getPostList().clear();
-        //account.getPostList().addAll(requestDTO.postList);
-
         return this.repository.save(account);
     }
 
-    public Account updateAccount(AccountProfileDTO requestDTO) {
+    public Account updateAccount(AccountUpdateDTO requestDTO) {
         Account account = this.getAccountById(requestDTO.id);
         account.setfName(requestDTO.fName);
         account.setlName(requestDTO.lName);

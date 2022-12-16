@@ -28,29 +28,11 @@ public class Comment {
     {
 
     }
-    public Comment(CommentDTO requestDTO){
+    public Comment(CommentDTO requestDTO){ //create comment object
         setAuthor(requestDTO.author);
         setPostId(requestDTO.postId);
         setCreateDate(requestDTO.createDate);
         setComment(requestDTO.comment);
-    }
-    public Comment(Account author, Long postId, Date createDate, String comment) {
-        setAuthor(author);
-        setPostId(postId);
-        setCreateDate(createDate);
-        setUpdateDate();
-        setComment(comment);
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", author=" + author +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
-                ", comment='" + comment + '\'' +
-                '}';
     }
 
     public void setId(Long id) {

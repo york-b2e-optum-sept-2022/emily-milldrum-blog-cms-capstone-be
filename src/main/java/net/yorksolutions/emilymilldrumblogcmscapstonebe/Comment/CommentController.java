@@ -4,9 +4,6 @@ package net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment;
 import net.yorksolutions.emilymilldrumblogcmscapstonebe.Post.Post;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.xpath.XPathVariableResolver;
-import java.util.Map;
-
 @RestController
 @RequestMapping("/api/comment/")
 @CrossOrigin

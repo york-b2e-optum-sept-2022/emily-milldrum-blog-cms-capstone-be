@@ -11,8 +11,6 @@ public class CommentDTO {
 
     public Date createDate;
 
-    public Date updateDate;
-
     public String comment;
 
 }

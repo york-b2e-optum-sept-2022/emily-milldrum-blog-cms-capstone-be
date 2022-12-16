@@ -1,9 +1,4 @@
 package net.yorksolutions.emilymilldrumblogcmscapstonebe.Post;
-
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.Account;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Account.AccountUpdateDTO;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.Comment;
-import net.yorksolutions.emilymilldrumblogcmscapstonebe.Comment.CommentDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,7 +25,6 @@ public class PostController {
     Iterable<Post> get(@PathVariable Long id) {return this.service.findPostsByAuthor(id);
     }
 
-
     @PutMapping("")
     public Post updatePost(@RequestBody PostUpdateDTO requestDTO){
         return this.service.updatePost(requestDTO);
@@ -40,10 +34,5 @@ public class PostController {
     public Post delete(@PathVariable Long id){
         return this.service.delete(id);
     }
-
-//    @PutMapping("/comment/")
-//    public Post addComment(@RequestBody Comment.CommentDTO commentDTO){
-//        return this.service.addComment(commentDTO);
-//    }
 
 }
