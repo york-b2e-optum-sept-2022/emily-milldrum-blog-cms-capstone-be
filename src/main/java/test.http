@@ -56,3 +56,6 @@ DELETE http://localhost:8080/api/comment/26
 
 ###
 GET http://localhost:8080/api/msg?sender=2&receiver=1
+
+###
+GET http://localhost:8080/api/post/

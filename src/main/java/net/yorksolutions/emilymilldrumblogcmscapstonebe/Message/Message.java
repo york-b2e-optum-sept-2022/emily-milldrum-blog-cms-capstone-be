@@ -61,4 +61,20 @@ public class Message {
         }
         this.message = message;
     }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public Account getSender() {
+        return sender;
+    }
+
+    public Account getReceiver() {
+        return receiver;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
