@@ -19,11 +19,6 @@ public class MessageController {
         return this.service.add(requestDTO);
     }
 
-    //
-//    @GetMapping("/getChat/")
-//    public Chat getChat(@RequestBody ChatDTO requestDTO){
-//        return this.service.getChat(requestDTO);
-//    }
     @GetMapping
     List<Message> get(@RequestParam Long sender, @RequestParam Long receiver) {
         return this.service.getAll(sender, receiver);
